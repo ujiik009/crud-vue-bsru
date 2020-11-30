@@ -1,5 +1,6 @@
 <template>
   <div id="kanban-body">
+      {{current_column_index}} {{current_task_index}}
     <div
       class="column"
       :style="{ backgroundColor: column.color }"
@@ -18,14 +19,15 @@
         @dragenter.prevent
       >
         <div
-          v-for="(item, item_index) in column.task"
-          :key="item_index"
-          
+          v-for="(task, task_index) in column.task"
+          :key="task_index"
+          @dragstart="dragstart(column_index, task_index)"
+          draggable
         >
           <Task
-            :item="item"
+            :item="task"
             :column_index="column_index"
-            :item_index="item_index"
+            :task_index="task_index"
           />
         </div>
       </div>
@@ -40,12 +42,20 @@ export default {
     data: Array,
   },
   components: { Task },
+  data() {
+    return {
+      current_column_index: null,
+      current_task_index: null,
+    };
+  },
   methods: {
     show() {
       alert(555);
     },
-    dragstart() {
-      console.log("dragstart");
+    dragstart(column_index,task_index) {
+        this.current_column_index = column_index
+        this.current_task_index = task_index
+    //   console.log("dragstart");
     },
     drop() {
       alert("drop");

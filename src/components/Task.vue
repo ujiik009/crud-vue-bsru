@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="task" draggable>
-      <h3>{{ item.name }} {{ column_index }} {{ item_index }}</h3>
+    <div class="task">
+      <h3>{{ item.name }} {{ column_index }} {{ task_index }}</h3>
     </div>
   </div>
 </template>
@@ -11,13 +11,8 @@ export default {
   props: {
     item: Object,
     column_index: Number,
-    item_index: Number,
-  },
-  methods: {
-    dragstart() {
-      console.log("dragstart");
-    },
-  },
+    task_index: Number,
+  }
 };
 </script>
 
