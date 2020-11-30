@@ -1,28 +1,68 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <KanBanBoard :data="data" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import KanBanBoard from "./components/KanBanBoard";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    KanBanBoard,
+  },
+  data() {
+    return {
+      data: [
+        {
+          state: "todo",
+          color: "#CC5C5A",
+          task: [
+               {
+              name: "work 1",
+            },
+               {
+              name: "work 2",
+            },
+             {
+              name: "work 3",
+            },
+               {
+              name: "work 4",
+            },
+             {
+              name: "work 5",
+            },
+               {
+              name: "work 6",
+            },
+             {
+              name: "work 7",
+            },
+               {
+              name: "work 7",
+            },
+          ],
+        },
+        {
+          state: "doing",
+          color: "#EB7145",
+          task: [
+           
+              {
+              name: "work 3",
+            },
+          ],
+        },
+        {
+          state: "done",
+          color: "#EACA78",
+          task: [
+         
+          ],
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
