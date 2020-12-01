@@ -1,4 +1,4 @@
-# crud-vue-bsru
+# crud-vue-bsru-kenban
 
 ## Project setup
 ```
